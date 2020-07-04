@@ -19,7 +19,7 @@ Capstone Deliverables:
 
 
 ## Current Version
-Shiny App: bzhang93.shinyapps.io/Ngrams-Text-Predictor
+Shiny App: [](http://bzhang93.shinyapps.io/Ngrams-Text-Predictor)
 
 ### The Model:
 The model used was a simple N-gram back-off model. The ngrams were created using a 5% random sample of the HC Copora dataset from SwiftKey.

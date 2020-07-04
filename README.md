@@ -8,9 +8,12 @@ Capstone Deliverables:
 - Application must allow users to input phrases and obtain predictions for the next word
 
 ## Files
-**Version 2** - Folder containing the most recent scripts. This is the updated code using the Quanteda package. These files are successors of all the scripts from Version 1.
-**Version 1** - Folder containing the original scripts using the TM package. This is deprecated as everything was rebuilt using Quanteda - a much faster and better package.
+**Version 2** - Folder containing the most recent scripts. This is the updated code using the Quanteda package. These files are successors of all the scripts from Version 1
+
+**Version 1** - Folder containing the original scripts using the TM package. This is deprecated as everything was rebuilt using Quanteda - a much faster and better package
+
 **Data** - This contains the cleaned and processed data used in the models. Most of these are created with the getData.R scripts in the version folders
+
 **ngrams-text-predict** - This folder contains all the files used to set up the Shiny App. This includes the UI, server, and CSS portion of the web app hosted through Shiny.
 
 

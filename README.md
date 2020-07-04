@@ -19,7 +19,7 @@ Capstone Deliverables:
 
 
 ## Current Version
-Shiny App: [](http://bzhang93.shinyapps.io/Ngrams-Text-Predictor)
+**Shiny App:** (http://bzhang93.shinyapps.io/Ngrams-Text-Predictor)
 
 ### The Model:
 The model used was a simple N-gram back-off model. The ngrams were created using a 5% random sample of the HC Copora dataset from SwiftKey.
@@ -30,7 +30,7 @@ The input could then be taken and searched by each word in each of the ngrams. U
 
 
 ## Future Plans
-1. Allow users to select different models before submitting their phrases for prediction. [Currently adding a Katz Back-off and Stupid Back-off models (WIP)]
+1. Allow users to select different models before submitting their phrases for prediction. *Currently adding a Katz Back-off and Stupid Back-off models (WIP*
 2. Give users the ability to benchmark the different models
 3. Improve look and UI of the application for user experience
 4. Suggest words reactively upon input 

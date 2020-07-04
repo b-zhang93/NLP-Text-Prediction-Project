@@ -1,0 +1,12 @@
+name: Ngrams-Text-Predictor
+title: Ngrams-Text-Predictor
+username:
+account: bzhang93
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 2523867
+bundleId: 3336773
+url: https://bzhang93.shinyapps.io/Ngrams-Text-Predictor/
+when: 1593564991.12206
+asMultiple: FALSE
+asStatic: FALSE

@@ -4,6 +4,7 @@ library(dplyr)
 library(curl)
 
 source("modelv2.R")
+source("stupidbo.R")
 
 
 # application ui
@@ -14,12 +15,14 @@ ui <- navbarPage("N-grams Text Predictor",
                               includeCSS("style.css")),
                           
                           h2("This App will Predict the Next Top 3 Words"),
+                          h6("Stupid Backoff Model did better during benchmarking, however for most cases it will work the same"),
                           tags$br(),
                           
                           splitLayout(
                               sidebarPanel( 
                                   width = 12,
                                   position = "left",
+                                  selectInput("model", "Choose Model:", c("Ngrams Backoff", "Stupid Backoff")),
                                   textInput("phrase","Input Phrase:", value = ""),
                                   submitButton("Predict")
                               ),
@@ -37,10 +40,11 @@ ui <- navbarPage("N-grams Text Predictor",
                  tabPanel("Documentation",
                           tags$h3("Functionality"),
                           tags$div(
+                              "- Select which model you wish to use. Ngrams Backoff model was the original model", tags$br(),
+                              "- Stupid Backoff Model performs better, but in most cases the results are similar", tags$br(),
                               "- Type in an incomplete phrase as the input", tags$br(),
                               "- The output panel should predict the next word",tags$br(),
                               "- Prediction is based on n+1 grams up to fourgrams with back off",tags$br(),
-                              "- The predicted words are sorted based on frequency, and thus the MLE (Most Likelihood Estimate)",tags$br(),
                               "- Blank inputs are automatically matched based on unigram frequency",tags$br(),
                               "- Ngrams are built based on twitter, blogs, news text data gathered from SwiftKey: ", tags$a(href="http://d396qusza40orc.cloudfront.net/dsscapstone/dataset/Coursera-SwiftKey.zip", "Download")),
                           
@@ -59,9 +63,15 @@ ui <- navbarPage("N-grams Text Predictor",
 # back-end functions
 server <- (function(input, output) {
     
+
+    
     output$nextword <- renderText(
-        if(input$phrase != ""){
-            words <- predictbo(input$phrase)
+        # run our predictor based on the model selected
+        if(input$model == "Ngrams Backoff" & input$phrase != "") {
+            words = predictbo(input$phrase)
+            output <- paste(words[1], words[2], words[3], sep=" | ")
+        } else if (input$model == "Stupid Backoff" & input$phrase != "") {
+            words = predictSBO(input$phrase)
             output <- paste(words[1], words[2], words[3], sep=" | ")
         }
         

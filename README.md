@@ -26,11 +26,11 @@ The model used was a simple N-gram back-off model. The ngrams were created using
 
 The data was cleaned and tokenized into 4-grams (unigrams, bigrams, trigrams, fourgrams). Each of these datasets were transformed into data frames with each column divided into single words and the frequency of the combination of those grams.
 
-The input could then be taken and searched by each word in each of the ngrams. Using back-off, we would first limit the input to 3 words by taking the tail of the phrase, and then based on length we would search the n+1 gram data for any matches. If there were no matches, we would then search again by taking the tail minus 1 and searching the n+1 gram for the shortened input.
+The input could then be taken and searched by each word in each of the ngrams. Using back-off, we would first limit the input to 3 words by taking the tail of the phrase, and then based on length we would search the n+1 gram data for any matches. If there were no matches, we would then search again by taking the tail minus 1 and searching the n+1 gram for the shortened input. Added a Stupid backoff model. This allows us to add a scoring method when doing the backoff. In the benchmark, this model performed better than the simple backoff model, but for most cases, the results will be similar. 
 
 
 ## Future Plans
-1. Allow users to select different models before submitting their phrases for prediction. *Currently adding a Katz Back-off and Stupid Back-off models (WIP*
+1. Allow users to select different models before submitting their phrases for prediction. *Currently adding a Katz Back-off and Stupid Back-off models (COMPLETED. KATZ BACKOFF MODEL WILL NOT BE ADDED AS IT PERFORMS WORSE THAN THE FIRST TWO)
 2. Give users the ability to benchmark the different models
 3. Improve look and UI of the application for user experience
 4. Suggest words reactively upon input 
